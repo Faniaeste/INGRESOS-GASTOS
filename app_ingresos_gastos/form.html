@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block pageBase %}
+
+<h2>{{Registro}} de ingresos y gastos</h2>
+
+        <form>
+            <label>Fecha:</label><br>
+            <input type="date" id="fecha" name="fecha" ><br>
+            <label>Concepto:</label><br>
+            <input type="text" id="concepto" name="concepto" ><br>
+            <label for="lname">Monto:</label><br>
+            <input type="number" id="monto" name="monto" ><br><br>
+            <input type="button" value="{{boton}}">
+        </form> 
+        <br>
+        <button>
+            <a href="/" type="button" > Volver </a>
+
+        </button>
+
+
+{% endblock %}
