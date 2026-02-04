@@ -3,10 +3,15 @@ from flask import render_template
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    datos = [
+        {'Fecha':'01/09/2026':'concepto':'Salario','monto':1800},
+        {'Fecha':'01/09/2026':'concepto':'Salario','monto':1800},
+        {'Fecha':'01/09/2026':'concepto':'Salario','monto':1800},
+    ]
+    return render_template("index.html", title = "Lista")
 
 @app.route("/new")
 def new():
-    return render_template("new.html")
+    return render_template("new.html", title = "Registro")
 
 

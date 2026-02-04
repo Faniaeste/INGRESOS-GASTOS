@@ -1,41 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    table,tr,th,td{
-        border: 1px solid rgb(169, 27, 171)
-    }
-</style>
-<body>
-    <h1>Esto es una lista de ingresos y gastos</h1>
+{% extends "base.html" %}
+{# esto es un cometario #}
+{% block pageBase %}
 
-    <table>
-  <tr>
-    <th>fecha</th>
-    <th>concepto</th>
-    <th>monto</th>
-  </tr>      
-  <tr>
-    <th>1/02/2026</th>
-    <th>Salario</th>
-    <th>1271</th>
-  </tr>
-  <tr>
-    <td>4/02/2026</td>
-    <td>Gasto en alimentos</td>
-    <td>-300</td>
-  </tr>
-  <tr>
-    <td>3/2/2026</td>
-    <td>Gasto en ropa</td>
-    <td>-150</td>
-  </tr>
+
+<table>
+    <tr>
+        <th>fecha</th>
+        <th>concepto</th>
+        <th>monto</th>
+    </tr>      
+    <tr>
+        <th>1/02/2026</th>
+        <th>Salario</th>
+        <th>1271</th>
+    </tr>
+    <tr>
+        <td>4/02/2026</td>
+        <td>Gasto en alimentos</td>
+        <td>-300</td>
+    </tr>
+    <tr>
+        <td>3/2/2026</td>
+        <td>Gasto en ropa</td>
+        <td>-150</td>
+    </tr>
 </table>
-<a href="/new" ></a>
-
-</body>
-</html>
+<a href="/new" >Nuevo Registro</a>
+{% endblock %}
