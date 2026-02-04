@@ -14,4 +14,11 @@ def index():
 def new():
     return render_template("new.html", title = "Registro")
 
+@app.route("/delete")
+def delete():
+    return render_template("delete.html")
+
+@app.route("/update")
+def update():
+    return render_template("update.html")
 
