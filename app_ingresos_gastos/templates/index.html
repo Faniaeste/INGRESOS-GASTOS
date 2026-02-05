@@ -2,9 +2,6 @@
 {# esto es un cometario #}
 {% block pageBase %}
 
-{{lista}}
-
-
 <table>
     <tr>
         <th>Fecha</th>
@@ -13,9 +10,9 @@
     </tr>   
     {% for dato in lista %}   
         <tr>
-            <td>{{dato['fecha']}}</td>
-            <td>{{dato['concepto']}}</td>
-            <td>{{dato['monto']}}€</td>
+            <td>{{dato[0]}}</td>
+            <td>{{dato[1]}}</td>
+            <td>{{dato[2]}}€</td>
         </tr>
     {% endfor %}
     

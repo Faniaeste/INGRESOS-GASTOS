@@ -1,5 +1,5 @@
 from app_ingresos_gastos import app
-from flask import render_template
+from flask import render_template,request
 import csv
 
 @app.route("/")
@@ -17,11 +17,14 @@ def index():
         {'Fecha':'01/09/2026','concepto':'Salario','monto':1800},
     ]
     """
-    return render_template("index.html", title = "Lista")
+    return render_template("index.html", title = "Lista", lista= datos)
 
-@app.route("/new")
+@app.route("/new",methods=["GET","POST"])
 def new():
-    return render_template("new.html", title = "Registro", titulo ="Registro", boton="Guardar")
+    if request.method == "POST":
+        return f"Esto deberia registarse{request.form}"
+    else:#Esto sería el GET
+        return render_template("new.html", title = "Registro", titulo ="Registro", boton="Guardar")
 
 @app.route("/delete")
 def delete():
