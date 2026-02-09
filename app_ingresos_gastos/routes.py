@@ -1,7 +1,7 @@
 from app_ingresos_gastos import app
 from flask import render_template,request,redirect
 import csv
-
+from datetime import date
 @app.route("/")
 def index():
     datos = []
@@ -24,15 +24,21 @@ def index():
 @app.route("/new",methods=["GET","POST"])
 def new():
     if request.method == "POST":
-        #acceder al arcivo y configurar la carga del nuevo registro
-        mifichero = open('app_ingresos_gastos/data/movimientos.csv','a',newline="")
-        #llamar al metodo writer de escritura y configuramos el formato
-        lectura = csv.writer(mifichero,delimiter=",",quotechar='"')
-        #registramos los datos recibidos desde el formulario al archivo csv
-        lectura.writerow( [request.form['dfecha'],request.form['dconcepto'],request.form['dmonto']] )
+        fecha_actual = str(date.today())
+
+        if request.form['dfecha'] > fecha_actual:
+            return render_template("new.html", title = "Registro", titulo ="Registro", boton="Guardar")
+        
+        else:
+            #acceder al arcivo y configurar la carga del nuevo registro
+            mifichero = open('app_ingresos_gastos/data/movimientos.csv','a',newline="")
+            #llamar al metodo writer de escritura y configuramos el formato
+            lectura = csv.writer(mifichero,delimiter=",",quotechar='"')
+            #registramos los datos recibidos desde el formulario al archivo csv
+            lectura.writerow( [request.form['dfecha'],request.form['dconcepto'],request.form['dmonto']] )
 
 
-        return redirect("/")#esto es para redirigir a la ruta home.
+            return redirect("/")#esto es para redirigir a la ruta home.
     else:#Esto sería el GET
         return render_template("new.html", title = "Registro", titulo ="Registro", boton="Guardar")
 
