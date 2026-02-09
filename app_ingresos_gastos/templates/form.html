@@ -3,13 +3,13 @@
 {% block pageBase %}
 
 <h2>{{titulo}} de ingresos y gastos</h2>
-<form me>
+<form method="post" action="/new">
             <label>Fecha:</label><br>
-            <input type="date" id="fecha" name="fecha" ><br>
+            <input type="date" id="fecha" name="dfecha" ><br>
             <label>Concepto:</label><br>
-            <input type="text" id="concepto" name="concepto" ><br>
+            <input type="text" id="concepto" name="dconcepto" ><br>
             <label for="lname">Monto:</label><br>
-            <input type="number" id="monto" name="monto" ><br><br>
+            <input type="number" id="monto" name="dmonto" ><br><br>
             <button type="submit">{{boton}}"</button>
         </form> 
         <br>
