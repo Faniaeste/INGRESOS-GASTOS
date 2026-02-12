@@ -29,6 +29,7 @@ def new():
         if request.form['dfecha'] > fecha_actual:
             return render_template("new.html", title = "Registro", titulo ="Registro", boton="Guardar")
         
+        
         else:
             #acceder al arcivo y configurar la carga del nuevo registro
             mifichero = open('app_ingresos_gastos/data/movimientos.csv','a',newline="")
@@ -49,4 +50,17 @@ def delete():
 @app.route("/update")
 def update():
     return render_template("update.html", title = "Actualizar",titulo = "Actualización", boton = "Actualizar")
+
+
+def validar_formulario(datos_formulario):
+    hoy = str( date.today() )
+    monto_int = int( datos_formulario['dmonto'])
+    errores = []
+    if datos_formulario['dfecha'] > hoy:
+        errores.append("La fecha no puede ser mayor que la actual")
+    if datos_formulario['dconcepto'] == "":
+        errores.append("El concepto no puede ir vacío")
+    if datos_formulario['dmonto'] == "" or monto_int == 0:
+        errores.append("El monto no pude ser vacío")
+
 
